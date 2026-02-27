@@ -1,6 +1,6 @@
 import classes from "./Footer.module.css";
 function Footer(){
-    const date= new date();
+    const date= new Date();
     const currentYear=date.getFullYear();
     return <footer className={classes.footer}> Copyright {currentYear}</footer>;
 }
