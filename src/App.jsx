@@ -4,7 +4,8 @@ import CardList from "./components/card/CardList";
 
 function App() {
   return (
-    <>
+    // antiframent
+     <> 
       <Header />
       <CardList/>
       <Footer />

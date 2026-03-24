@@ -1,9 +1,17 @@
+import { useState } from "react";
 import Card from "./Card";
 
 import classes from "./CardItem.module.css";
 
 export default function CardItem(props) {
+  const [buttontext, setButtonText] = useState("View More");
+  const [showDetails, setShowDetails]=useState(false);
   console.log(props); //props vanyako pratent bata child
+
+  function handelToggleDetails() {
+    setButtonText(buttontext==='View More'? 'View Less':'View More');
+    setShowDetails(!showDetails);
+  }
   return (
     <Card>
       <div className={classes.header}>
@@ -18,6 +26,7 @@ export default function CardItem(props) {
           <p className={classes.role}>{props.role}</p>
         </div>
       </div>
+      {showDetails &&(
       <div className={classes.details}>
         <div className={classes.detailItem}>
           <span className={classes.label}> Email:</span>
@@ -34,7 +43,9 @@ export default function CardItem(props) {
           <span>{props.experience}</span>
         </div>
       </div>
-      <button className={classes.button}>View More</button>
+      )}
+      <button className={classes.button}onClick={handelToggleDetails}>{buttontext}
+      </button>
     </Card>
   );
 }
